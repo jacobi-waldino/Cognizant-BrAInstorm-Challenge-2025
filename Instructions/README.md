@@ -1,34 +1,75 @@
-# Instructions & Demo Guide
+# Windlytics Quickstart Guide
 
-Document exactly how judges or mentors can experience your solution. Update this file as the project evolves so it remains the single source of truth.
+## Prerequisites
 
-## Quick Start
-1. Clone the repo and check out your feature branch.
-2. Install dependencies: `TODO: add command (e.g., pip install -r requirements.txt)`.
-3. Set required environment variables or secrets (list them below).
-4. Run the project locally using the commands in the next section.
+Before you begin, ensure you have the following installed:
+- Python 3.10+
+- pip (Python package manager)
+- Node.js 18+ and npm 9+
+- Git (for cloning and version control)
 
-## Local Run Commands
-| Step | Command | Notes |
-| --- | --- | --- |
-| Install | `TODO` | e.g., create virtualenv, install packages |
-| Train | `TODO` | mention dataset location |
-| Evaluate | `TODO` | describe metrics output |
-| Serve | `TODO` | e.g., `uvicorn app:app --reload` |
-| Frontend | `TODO` | e.g., `npm run dev` |
+## 1. Backend Setup (Flask API)
+Navigate to the backend directory:
+```bash
+cd Codebase/windlytics_backend
+```
+Create and activate a virtual environment:
 
-## Environment Variables
-| Name | Purpose | Example |
-| --- | --- | --- |
-| `API_KEY` | Access external API | `sk-xxxxx` |
-| `MODEL_PATH` | Location of model weights | `models/best.ckpt` |
+Windows:
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
 
-## Hosted Demo / Video
-- Live app: [Add URL](https://example.com)
-- Video walkthrough: [Add URL](https://example.com/video)
+macOS/Linux:
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
 
-## Troubleshooting
-- Common issue 1 → resolution steps.
-- Common issue 2 → resolution steps.
+Install dependencies:
+```bash
+pip install -r requirements.txt
+```
 
-Keep this guide concise and up to date—reviewers will follow it verbatim.
+Run the Flask backend:
+```bash
+python run.py
+```
+By default, the backend will start at:
+```cpp
+http://127.0.0.1:5000/
+```
+
+## 2. Frontend Setup (React App)
+(New terminal window recommended)
+
+Navigate to the frontend directory:
+```bash
+cd ../windlytics_frontend
+```
+
+Install Node dependencies:
+```bash
+npm install
+```
+
+Start the React development server:
+```bash
+npm run dev
+```
+
+By default, Vite serves the frontend at:
+```arduino
+http://localhost:5173/
+```
+
+## 3. Verify Everything Works
+
+Start the Flask backend (`python run.py`)
+Start the React frontend (`npm run dev`)
+Open your browser and visit:
+```arduino
+http://localhost:5173/
+```
+Place turbines on the map, select turbine models, and run a simulation — results should appear in a modal.
